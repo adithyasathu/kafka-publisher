@@ -1,0 +1,17 @@
+worker:
+  kafka:
+    topic: shopping-cart-events
+    client:
+      metadata.broker.list: localhost:9092
+      group.id: shopping-cart-events-publisher
+      # dr_cb: true
+      # debug: all
+      enable.auto.commit: false
+      socket.keepalive.enable: true
+      retry.backoff.ms: 200
+      message.send.max.retries: 10
+      queue.buffering.max.messages: 100000
+      queue.buffering.max.ms: 1000
+      batch.num.messages: 1000000
+    topics:
+      auto.offset.reset: latest
