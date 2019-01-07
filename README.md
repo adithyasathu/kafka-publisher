@@ -41,6 +41,7 @@ yarn build followed by `yarn test` to execute the unit tests via [Mocha](https:/
   `docker-compose up` to start all the docker images required for setup 
   
   
+  ![containers-list](https://user-images.githubusercontent.com/22003086/50743346-c4da8780-126a-11e9-9e1a-ea5984cb1c71.png)
 
 
 
@@ -52,3 +53,5 @@ yarn build followed by `yarn test` to execute the unit tests via [Mocha](https:/
 docker exec -it  <container_name>  kafka-console-consumer --bootstrap-server localhost:9092 --topic shopping-cart-events --from-beginning ```
 
 ```
+
+![published-events](https://user-images.githubusercontent.com/22003086/50743355-e20f5600-126a-11e9-837c-f5901b847fab.png)
