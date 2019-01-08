@@ -45,9 +45,9 @@ const products: Product [] = [
     { name : "Wifi Remote", description: "Lets keep all the appliances connected to wifi under button click", price: 2100 },
 ];
 
-export const fakeProduct = (selection?: number): Product => {
+export const fakeProduct = (): Product => {
 
-    const product = (selection) ? products[selection] : products[Math.floor(Math.random() * products.length)]; // randomly pic one product
+    const product = products[Math.floor(Math.random() * products.length)]; // randomly pic one product
 
     return product;
 };

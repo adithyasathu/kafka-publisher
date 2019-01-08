@@ -9,7 +9,8 @@ export const log = Logger.createSimpleLogger();
 export async function fakeSales(num)  {
     let worker: IWorker = null;
     try {
-        worker = new Worker(new Publisher(kafkaConfig), kafkaConfig.topic);
+        const publisher = new Publisher(kafkaConfig);
+        worker = new Worker(publisher, kafkaConfig.topic);
         await worker.start(num);
     } catch (e) {
         log.error(e);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/del -f build && tsc",
-    "test": "./node_modules/.bin/del -f coverage && ./node_modules/.bin/nyc ./node_modules/.bin/mocha ./build/test/*.mocha.js ",
+    "test": "./node_modules/.bin/del -f coverage && ./node_modules/.bin/nyc ./node_modules/.bin/mocha -r ts-node/register ./test/*.mocha.ts",
     "start": "node index"
   },
   "repository": {
@@ -14,6 +14,26 @@
   },
   "author": "Adithya Sathu",
   "license": "ISC",
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/publisher.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
   "devDependencies": {
     "@types/chai": "^3.5.2",
     "@types/config": "^0.0.32",

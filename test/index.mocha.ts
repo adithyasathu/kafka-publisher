@@ -4,10 +4,11 @@ import { Worker } from '../src/worker';
 import { Publisher } from "../src/publisher";
 import {IPublisher} from "../src/interfaces";
 
-describe('Worker Test', () => {
+describe('Kakfa Producer Test', () => {
 
+    let worker = null;
     beforeEach(() => { sinon.stub(process, 'exit'); });
-    afterEach(() => { sinon.restore(); });
+    afterEach(() => { sinon.restore(); if(worker) { worker.stop()} });
 
     it('should publish 2 messages', async () => {
         // Arrange
@@ -20,7 +21,7 @@ describe('Worker Test', () => {
         });
 
         // Act
-        const worker = new Worker(publisher.object, 'topic-test');
+        worker = new Worker(publisher.object, 'topic-test');
         await worker.start(2);
 
         // Assert
@@ -38,7 +39,7 @@ describe('Worker Test', () => {
         });
 
         // Act
-        const worker = new Worker(publisher.object, 'topic-test');
+        worker = new Worker(publisher.object, 'topic-test');
         await worker.start(5);
 
         // Assert
@@ -56,7 +57,7 @@ describe('Worker Test', () => {
         });
 
         // Act
-        const worker = new Worker(publisher.object, 'topic-test');
+        worker = new Worker(publisher.object, 'topic-test');
         await worker.start(0);
 
         // Assert
