@@ -1,6 +1,6 @@
 ## Kafka Publisher
 
-Publishes shopping cart events onto Kafka
+Publishes shopping cart events(simulated fake messages) onto Kafka
 
 
 ### To Install Dependencies
@@ -27,7 +27,21 @@ yarn run start
 ```
 yarn build followed by `yarn test` to execute the unit tests via [Mocha](https://www.npmjs.com/package/mocha) with coverage [nyc](https://www.npmjs.com/package/nyc).
 ```
+
+## Areas of demonstration
   
+- Understanding of Kafka on general
+- Publish messages on to Kafka
+- docker setup and use with ease
+- Building NodeJS worker/task runner design pattern for processing long running tasks
+- Test cases for quality check
+
+### TODO
+
+- Introduce AVRO for serialization
+- Introduce publishing key to control the partition the message needs to land
+
+
 ### Local setup using Docker: 
   
   ##### Prerequisite - Install Docker
